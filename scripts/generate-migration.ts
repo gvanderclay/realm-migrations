@@ -33,7 +33,7 @@ const fetchMigrationFileNamesWithoutExt = (directory: string) =>
 // For example, if the command is 'yarn generate-migration add email to user'
 // then the migration name is 'add email to user'
 // This supports multiple words in the migration name
-// Calling `.slice(2)` removes the first two arguments which are 'node' and 'scripts/generate-migration.ts'
+// Calling `.slice(2)` removes the first two arguments which are 'tsx' and 'scripts/generate-migration.ts'
 const args = process.argv.slice(2);
 
 if (args.length === 0) {
