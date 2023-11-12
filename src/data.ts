@@ -5,18 +5,22 @@ const seedData: PersonRecord[] = [
   {
     id: new Realm.BSON.ObjectId(),
     name: "Jotaro Kujo",
+    email: "jotaro@kujo.com",
   },
   {
     id: new Realm.BSON.ObjectId(),
     name: "Joseph Joestar",
+    email: "joseph@joestar.com",
   },
   {
     id: new Realm.BSON.ObjectId(),
     name: "Muhammad Avdol",
+    email: "muhammad@avdol.com",
   },
   {
     id: new Realm.BSON.ObjectId(),
     name: "Dio Brando",
+    email: "Dio@Brando.com",
   },
 ];
 

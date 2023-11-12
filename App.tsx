@@ -17,7 +17,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       {data.map((person) => (
-        <Text key={person.id.toHexString()}>{person.name}</Text>
+        <View key={person.id.toHexString()}>
+          <Text>{`Name: ${person.name}`}</Text>
+          <Text>{`Email: ${person.email}`}</Text>
+        </View>
       ))}
     </View>
   );

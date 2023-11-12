@@ -22,12 +22,14 @@ export const PersonSchema: Realm.ObjectSchema = {
   properties: {
     id: "objectId",
     name: "string",
+    email: "string",
   },
 };
 
 export type PersonRecord = {
   id: Realm.BSON.ObjectId;
   name: string;
+  email: string;
 };
 
 export const schema: Required<Realm.Configuration>["schema"] = [
