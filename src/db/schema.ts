@@ -16,6 +16,16 @@ export type MigrationRecord = {
   createdAt: Date;
 };
 
+export const PersonSchema: Realm.ObjectSchema = {
+  name: "PersonRecord",
+  primaryKey: "id",
+  properties: {
+    id: "objectId",
+    name: "string",
+  },
+};
+
 export const schema: Required<Realm.Configuration>["schema"] = [
   MigrationSchema,
+  PersonSchema,
 ];
