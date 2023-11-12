@@ -1,11 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import "react-native-get-random-values";
+import { initializeRealm } from "./src/data";
+import { createRealm } from "./src/db/realm";
+import { PersonRecord, PersonSchema } from "./src/db/schema";
+
+const realm = createRealm();
+initializeRealm(realm);
 
 export default function App() {
+  const [data, setData] = useState<PersonRecord[]>([]);
+  useEffect(() => {
+    const people = realm.objects<PersonRecord>(PersonSchema.name);
+    setData([...people]);
+  }, []);
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {data.map((person) => (
+        <Text key={person.id.toHexString()}>{person.name}</Text>
+      ))}
     </View>
   );
 }
@@ -13,8 +26,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
